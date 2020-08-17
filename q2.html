@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr=[0,0,1,1,0,0,0,1,0,0,1,1,1,0];
+	var count=0;
+	var result=0;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]===1){
+			count++;
+			result=(count>result)?count:result;
+		}
+		else{
+			count=0;
+		}
+	}
+	console.log("Max num of consecutive 1's is ",result);
+</script>
+</body>
+</html>

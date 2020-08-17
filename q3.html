@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr=[1,2,3,4,5,6,7,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+	var repNum=0;
+	for(var i=0;i<arr.length;i++){
+		for(var j=i+1;j<arr.length;j++)
+			if(arr[i]===arr[j]){
+				repNum=arr[j];
+			}
+	}
+	console.log("the repeated number is ",repNum);
+</script>
+</body>
+</html>
