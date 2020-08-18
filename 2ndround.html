@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excellence 2nd Round of Interview</title>
+	<meta charset="utf-8" name="viewport" conten="Width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="2ndround .css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Work+Sans:400">
+</head>
+<body>
+<header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="heading">
+  	<div class="headingcont"><h1>Second Round</h1></div>
+	<div class="headingcont">Interview</div>
+</div>
+<div class="ss"> 
+	<label for="txt1"><b>Search your Product Name: </b></label>
+	<input  type="text" id="txt1" onkeyup="keyup(this)">
+</div>
+<div id="txt2">
+	
+</div>
+<script type="text/javascript">
+	  var EventNo=0;
+var prod1={"name":"Maggi","price":25,desc:"Maggi is a popular among children and youth. It is produced by Nestle."};
+		var prod2={"name":"Perk","price":10, desc:"Perk is a popular chocolate bar which is reasonably priced."};
+		var prod3={"name":"Gems","price":15, desc:"An old favorite of children, the multi colored Gems are not only attractive but also very tasty."};
+		var prod4={"name":"Lindt","price":90,desc:"A very expensive and upmarket chocolate, Lindt is popular among the urban rich and elites."};
+		var prod5={"name":"Nutties","price":12, desc:"Another kid favotites, Nutties is similar to Gems, though is crunchier. Like more in youth."};
+		var prod6={"name":"Pepsi","price":15, desc:"One of the most popular cola drinks which advertises with film stars and cricketers."};
+		var prod7={"name":"Coca Cola","price":15, desc:"Pepsi and Coca Cola are competitors. They are the leading cola drinks. Coca Cola is the global marketleader in carbonated drinks."};
+		var prod8={"name":"Dairy Milk","price":10, desc:"One of the most popular chocolate bars from Cadburys whose advertising is new and refreshing."};
+		var Array1=[prod1,prod2,prod3,prod4,prod5,prod6,prod7,prod8];
+
+
+
+   var Array2=[];
+    var ele1=document.createElement("div");
+    ele1.setAttribute("class","boxmain");  
+			
+ function keyup(elem){
+    EventNo++; 
+	console.log("onchange",EventNo,elem.value);
+	 var name1=elem.value;
+	 	if(name1.length!=0){
+    Array2=Array1.filter(per1 => filterArray(per1,name1));
+	console.log("after filter : ",name1," : ",JSON.stringify(Array2));
+	showproducts();
+	}
+	else{
+		Array2=[];
+		showproducts();
+	}
+   function filterArray(nam,input){
+	       var txt=nam;
+	       
+		   var include=txt.name.toLowerCase().startsWith(input.toLowerCase());
+		   console.log("include",include);
+		
+		   if(include){
+		     return true;
+		   }
+		   else{
+		     return false;
+		   }
+		
+	}
+	 	    
+   
+
+}
+function showproducts(){
+	var len=Array2.length;
+          var str="";		  
+          for(var i=0;i<len;i++){
+		    var person="<div class='box'><b>Product Name: </b>"+Array2[i].name+"<br><b>Price: </b>"+Array2[i].price+"<br> <b>description: </b><div class='des'>"+Array2[i].desc+"</div><br>";
+		    var btn1="<button class='bt' onclick=remove("+i+")>Delete</button></div>";
+			str=str+person+btn1;
+		  }
+       ele1.innerHTML= str;
+      document.body.appendChild(ele1);
+}
+function remove(index){
+				console.log("remove index=",index);
+				Array2.splice(index,1);
+				showproducts();
+			}
+</script>
+</body>
+</html>
